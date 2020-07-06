@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MovieCard from "../../components/MovieCard";
 import "./App.css";
 
 function App() {
@@ -20,14 +21,11 @@ function App() {
           {movies.results.map((
             movie //map = for
           ) => (
-            <div>
-              <h1 className="movietitle">{movie.title}</h1>
-              <img
-                src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
-                alt={`${movie.title}`}
-              />
-              <p>{movie.overview}</p>
-            </div>
+            <MovieCard
+              title={movie.title}
+              overview={movie.overview}
+              poster_path={movie.poster_path}
+            />
           ))}
         </div>
       ) : (
